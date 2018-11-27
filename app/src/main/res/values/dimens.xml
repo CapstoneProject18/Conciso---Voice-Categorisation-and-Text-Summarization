@@ -1,0 +1,7 @@
+<resources>
+  <!-- Default screen margins, per the Android Design guidelines. -->
+  <dimen name="bubble_size">25dp</dimen>
+  <dimen name="wave_height">60dp</dimen>
+  <dimen name="footer_height">170dp</dimen>
+
+</resources>

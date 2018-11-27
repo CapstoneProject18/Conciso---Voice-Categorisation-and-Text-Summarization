@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="in.arjsna.audiorecorder">
+
+  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+
+  <application
+      android:allowBackup="false"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:supportsRtl="true"
+      android:name=".AudioRecorderApp"
+      android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+
+    <activity
+        android:name="in.arjsna.audiorecorder.activities.MainScreen"
+        android:screenOrientation="portrait"
+        android:launchMode="singleTop">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+
+    <activity
+        android:name="in.arjsna.audiorecorder.activities.MainActivity"
+        android:label="@string/action_settings"
+        android:parentActivityName="in.arjsna.audiorecorder.activities.MainScreen"
+        android:screenOrientation="portrait">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="in.arjsna.audiorecorder.activities.MainActivity"/>
+    </activity>
+
+    <activity
+        android:name="in.arjsna.audiorecorder.activities.SettingsActivity"
+        android:label="@string/action_settings"
+        android:parentActivityName="in.arjsna.audiorecorder.activities.MainActivity"
+        android:screenOrientation="portrait">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="in.arjsna.audiorecorder.activities.MainActivity"/>
+    </activity>
+
+    <provider
+        android:name="android.support.v4.content.FileProvider"
+        android:authorities="in.arjsna.audiorecorder.fileprovider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/filepaths"/>
+    </provider>
+
+    <service android:name="in.arjsna.audiorecorder.recordingservice.AudioRecordService"/>
+
+    <activity android:name="in.arjsna.audiorecorder.activities.PlayListActivity"
+        android:parentActivityName="in.arjsna.audiorecorder.activities.MainActivity"
+        android:screenOrientation="portrait">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="in.arjsna.audiorecorder.activities.MainActivity"/>
+    </activity>
+
+    <activity
+        android:name="in.arjsna.audiorecorder.activities.TextSummarization"
+        android:label="@string/action_settings"
+        android:parentActivityName="in.arjsna.audiorecorder.activities.MainScreen"
+        android:screenOrientation="portrait">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="in.arjsna.audiorecorder.activities.MainActivity"/>
+    </activity>
+
+    <activity
+        android:name="in.arjsna.audiorecorder.activities.VoiceCategorization"
+        android:label="@string/action_settings"
+        android:parentActivityName="in.arjsna.audiorecorder.activities.MainScreen"
+        android:screenOrientation="portrait">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="in.arjsna.audiorecorder.activities.MainActivity"/>
+    </activity>
+
+
+  </application>
+
+</manifest>
